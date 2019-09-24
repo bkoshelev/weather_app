@@ -1,0 +1,19 @@
+{
+  "editor.formatOnSave": true,
+  "eslint.autoFixOnSave": false,
+  "explorer.autoReveal": false,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/.history": true
+  }
+}
