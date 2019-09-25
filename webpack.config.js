@@ -50,10 +50,32 @@ module.exports = {
         test: /\.pcss$/,
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
+      {
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        include: path.resolve(__dirname, '../'),
+        use: [
+          {
+            loader: 'file-loader',
+
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/'
+            }
+          }
+        ]
+
+      }
     ],
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    alias: {
+      components: path.resolve(__dirname, "src/components"),
+      screens: path.resolve(__dirname, 'src/screens/'),
+      tabs: path.resolve(__dirname, 'src/tabs/'),
+      root: path.resolve(__dirname, 'src/'),
+      storybook: path.resolve(__dirname, 'src/storybook'),
+    }
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -62,10 +84,16 @@ module.exports = {
       template: HtmlWebpackTemplate,
       appMountId: 'root',
       title: 'Weather App',
-      meta: {
-        name: "theme-color",
-        color: 'white'
-      }
+      meta: [
+        {
+          name: 'description',
+          content: 'A better default template for html-webpack-plugin.'
+        },
+        {
+          name: 'viewport',
+          content: "width=device-width, initial-scale=1"
+        }
+      ],
     }),
     new MiniCssExtractPlugin({
       filename: 'styles.css',
