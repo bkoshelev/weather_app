@@ -18,7 +18,8 @@ const Stub = styled.div`
 
   animation: waiting 3s;
   animation-fill-mode: forwards;
-  animation-direction: alternate-reverse;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
 `;
 
 export default Stub;
